@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Html Test Ground</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="content" data-reactid="6">
+        <p><em>src/index.js</em></p>
+        <div class="wrapper">
+            <pre class=""><code>// ...
+import store from './store';
+<span class="added-line">+ import Home from './components/Home';
++ import Login from './components/Login';
+</span>
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+
+ReactDOM.render((
+    &lt;Provider store={store}&gt;
+        &lt;Router history={hashHistory}&gt;
+            &lt;Route path="/" component={App}&gt;
+<span class="added-line">+           &lt;IndexRoute component={Home} /&gt;
++           &lt;Route path="login" component={Login} /&gt;
+</span>            &lt;/Route&gt;
+        &lt;/Router&gt;
+    &lt;/Provider&gt; 
+), document.getElementById('root'));
+        </code></pre>
+        </div>
+    </div>
+    <div class="content" data-reactid="6"><p><em>src/components/App.js</em></p>
+            <div class="wrapper"><pre class=""><code>
+import Header from './Header';
+import Home from './Home';
+import React from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state =&gt; ({
+appName: state.appName
+});
+
+class App extends React.Component {
+render() {
+    return (
+    &lt;div&gt;
+        &lt;Header appName={this.props.appName} /&gt;
+<span class="removed-line">-       &lt;Home /&gt;
+</span><span class="added-line">+       {this.props.children}
+</span>      &lt;/div&gt;
+    );
+}
+}
+
+<span class="added-line">+ App.contextTypes = {
++   router: React.PropTypes.object.isRequired
++ };
+</span>
+export default connect(mapStateToProps, () =&gt; ({}))(App);
+        </code></pre></div></div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+.content {
+    padding: 19px 31px 21px 25px;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    line-height: 1.47;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+code {
+    background: #141414;
+    border: 2px solid #292929;
+    margin-bottom: 0;
+    margin-left: -23px;
+    margin-right: -29px;
+    padding: 10px 34px 10px 25px;
+    overflow-x: auto;
+    border-radius: 7px;
+    font-size: 14px;
+    display: block;
+    white-space: pre;
+}
+
+.wrapper {
+    color: #9E885B;
+    background: #2f1e2e;
+    margin-bottom: -19px !important;
+}
+
+.added-line {
+    color: #1dca1d;
+    background: #172216;
+    border: 4px;
+}
+
+.removed-line {
+    color: #a91c1c;
+    background: #320606;
+}
